@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复利计算器</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- 引入 Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 头部标题 -->
+        <header>
+            <h1>复利计算器</h1>
+            <p>轻松计算您的投资收益</p>
+        </header>
+
+        <!-- 第一个计算器部分 -->
+        <section class="calculator-section">
+            <div class="calculator-container">
+                <!-- 输入表单 -->
+                <div class="input-group">
+                    <h2>计算收益</h2>
+                    <form id="calculatorForm">
+                        <div class="form-group">
+                            <label for="initialAmount">起始资金（万元）</label>
+                            <input type="number" id="initialAmount" required min="0" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="annualRate">年化收益率（%）</label>
+                            <input type="number" id="annualRate" required min="0" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="years">投资年限</label>
+                            <input type="number" id="years" required min="1">
+                        </div>
+                        <button type="submit" class="btn">计算收益</button>
+                    </form>
+                </div>
+
+                <!-- 计算结果 -->
+                <div class="results">
+                    <div class="result-card">
+                        <h3>复利计算结果</h3>
+                        <div id="compoundResult"></div>
+                    </div>
+                    <div class="result-card">
+                        <h3>非复利计算结果</h3>
+                        <div id="simpleResult"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 图表展示 -->
+            <div class="chart-section">
+                <h2>收益走势对比</h2>
+                <div class="chart-container">
+                    <canvas id="profitChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二个计算器部分 -->
+        <section class="calculator-section">
+            <div class="calculator-container">
+                <!-- 输入表单 -->
+                <div class="input-group">
+                    <h2>目标年限计算</h2>
+                    <form id="targetForm">
+                        <div class="form-group">
+                            <label for="targetAmount">目标金额（万元）</label>
+                            <input type="number" id="targetAmount" required min="0" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="targetRate">年化收益率（%）</label>
+                            <input type="number" id="targetRate" required min="0" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="initialInvestment">起始资金（万元）</label>
+                            <input type="number" id="initialInvestment" required min="0" step="0.01">
+                        </div>
+                        <button type="submit" class="btn">计算年限</button>
+                    </form>
+                </div>
+
+                <!-- 计算结果 -->
+                <div class="target-results">
+                    <div class="result-card">
+                        <h3>复利所需年限</h3>
+                        <div id="compoundYears"></div>
+                    </div>
+                    <div class="result-card">
+                        <h3>非复利所需年限</h3>
+                        <div id="simpleYears"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 图表展示 -->
+            <div class="chart-section">
+                <h2>目标金额走势</h2>
+                <div class="chart-container">
+                    <canvas id="targetChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript 文件 -->
+    <script src="/js/calculator.js"></script>
+    <script src="/js/chart.js"></script>
+</body>
+</html> 
